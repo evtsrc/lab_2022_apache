@@ -1,0 +1,28 @@
+<html>
+	<head>
+<title>JavaScript - read JSON from URL</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1> HTML cargado desde apache </h1><br>
+    <div style="margin-bottom: 25px;"><span > Que llama a un servicio Rest en Python que consulta a la bbdd</span></div>
+    <div >
+        <div style="margin-bottom: 15px;"><span style="font-weight: bold;">Resultado de la consulta</span></div>
+        <div class="mypanel"></div>
+    </div>
+
+    <script>
+    $.getJSON('./app/accounts', function(data) {
+	var text = `${data[0]}<br>`
+	for (var i = 1; i < data.length; i++){
+	    var text = text + `${data[i]}<br>`
+	}
+
+
+        $(".mypanel").html(text);
+    });
+    </script>
+
+</body>
+</html>
